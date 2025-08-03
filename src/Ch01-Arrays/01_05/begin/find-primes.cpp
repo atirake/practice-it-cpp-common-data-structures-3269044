@@ -3,14 +3,27 @@
 
 using namespace std;
 
+bool isPrime(const int num)
+{
+    for (int i = 2; i <= num / 2; i++)
+    {
+        if (num % i == 0)
+            return false;
+    }
+    return true;
+}
+
 void findPrimes(const int arr[], size_t size, std::vector<int> &primes)
 {
+    for (size_t i = 0; i < size; i++) {
+        if (isPrime(arr[i])) primes.push_back(arr[i]);
+    }
     // TODO: Implement
 }
 
 int main()
 {
-    int numbers[] {4, 7, 12, 3, 9, 17, 29};
+    int numbers[] {4, 12};
     
     size_t size = sizeof(numbers) / sizeof(numbers[0]);
     vector<int> primes;
